@@ -11,6 +11,7 @@ class Calculator extends React.Component {
     this.numberClicked = this.numberClicked.bind(this);
     this.addition = this.addition.bind(this);
     this.validateOutputBox = this.validateOutputBox.bind(this);
+    this.calc = this.calc.bind(this);
     this.state = {eqqq: "0"};
   }
   
@@ -57,7 +58,10 @@ class Calculator extends React.Component {
     return true;
 
   }
-
+  // start by implementing this method. justt give state to this method and use the logic we worked on already
+  calc(){
+    console.log("hello");
+  }
   
   render() {
 
@@ -68,7 +72,7 @@ class Calculator extends React.Component {
 
 
         <div className="operators operators1">
-        <div className="operator" id='equals'><h1>=</h1></div>
+        <div onClick={this.calc} className="operator" id='equals'><h1>=</h1></div>
         <div className="operator" id='clear'><h1>C</h1></div>
 
 
