@@ -1,38 +1,143 @@
-.App {
-  text-align: center;
+.mainContent{
+
+  height: 100vh;
+  width: 100wh;
+  background-color: #E7E7E7;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+.calculator{
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  height: 400px;
+  width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* background-color: blue; */
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dialPad {
+  height: 400px;
+  width: 400px;
+  background-color: #E7E7E7;
+  border-radius: 50%;
+  box-shadow: 7px 7px 10px rgb(44, 44, 44), 
+            -7px -7px 10px white;
+  /* align-self: center; */
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
 }
 
-.App-link {
-  color: #61dafb;
+
+
+.numbers{
+
+  /* background-color: blue; */
+  width: 60%;
+  height: 15%;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-evenly;
+
+
+}
+.rect {
+
+height: 8px;
+width: 60px;
+background-color: #1F87A3;
+margin-top: 10px;
+display: flex;
+justify-content: center;
+opacity: 80%;
+
+}
+.rect h2{
+
+  color: #333333;
+  padding: 10px 15px 35px 15px;
+  margin: 0;
+  position: relative;
+  bottom: 45px;
+  font-size: 26px;
+  cursor: pointer;
+  
+  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+/* -----------------  Operators ----------------- */
+
+.operators{
+  height: 400px;
+  width: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+
 }
+
+.operator{
+
+  width: 60px;
+  height: 60px;
+  background-color: #D66600;
+  box-shadow: 5px 5px 10px rgb(44, 44, 44), 
+            -7px -7px 10px white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.operator h1{
+  margin: 0;
+  padding: 0;
+  color: #E7E7E7;
+  position: relative;
+  bottom: 2px;
+  left: 1px;
+
+}
+
+
+.operators1 {
+  height: 200px;
+}
+
+
+
+#multiplication h1{
+  bottom: -5px;
+}
+
+
+
+
+
+/* -----------------  Output ----------------- */
+
+.output{
+  width: 450px;
+  height: 50px;
+  margin-top: 50px;
+  box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.2),
+  inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
+  /* background-color: cadetblue; */
+}
+
+input.output {
+  border:none;
+  border-radius:5px;
+  text-indent:15px;
+  font-size: 20px;
+}
+input:focus { outline:none; }
