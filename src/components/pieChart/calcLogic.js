@@ -1,12 +1,10 @@
 var i = "12-45/5*3";
 
-/(:\s|,\s)/
+// /(:\s|,\s)/
 var o = i.split(/(\/|\+|\-|\*)/);
 
 
 for(var i=0 ; i < o.length; i++ ){
-    
-    
     
     if (["/","*"].includes(o[i])){
         

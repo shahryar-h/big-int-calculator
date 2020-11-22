@@ -12,7 +12,13 @@ class Calculator extends React.Component {
     this.addition = this.addition.bind(this);
     this.validateOutputBox = this.validateOutputBox.bind(this);
     this.calc = this.calc.bind(this);
-    this.state = {eqqq: "0"};
+  //   this.state = {
+  //     equation: "0",
+  //     currentOpertion: ""
+  
+  // };
+  this.equation = "0";
+  this.currentOpertion = "";
   }
   
   // adds digits to outputBox as clicked
@@ -40,9 +46,13 @@ class Calculator extends React.Component {
     let outputBox = document.getElementById('outputBox');
     let isInt = this.validateOutputBox(outputBox);
     if (isInt === true){
-      this.state.eqqq = this.state.eqqq + "+" + outputBox.value;
+      // this.setState((state) => ({ equation: state.equation + "+" + outputBox.value }));
+      // console.log(this.he);
+      this.equation = this.equation + "+" + outputBox.value;
+
     }
-    console.log(this.state.eqqq);
+    this.currentOpertion = "+";
+    outputBox.value = "";
   }
   // a helper function to validate if the input is an Integer
   // returns true if the input is integer
@@ -60,7 +70,61 @@ class Calculator extends React.Component {
   }
   // start by implementing this method. justt give state to this method and use the logic we worked on already
   calc(){
-    console.log("hello");
+    let outputBox = document.getElementById('outputBox');
+    let isInt = this.validateOutputBox(outputBox);
+    if (isInt === true){
+      this.equation = this.equation + this.currentOpertion + outputBox.value;
+    }
+    outputBox.value = "";
+    var o = this.equation.split(/(\/|\+|\-|\*)/);
+    for(var i=0 ; i < o.length; i++ ){
+    
+      if (["/","*"].includes(o[i])){
+          
+          switch(o[i]) {
+              case "/":
+                  o[i-1] = o[i-1] / o[i+1];
+                  o.splice(i, 2) 
+                  i--;
+                  console.log(o);
+                  break;
+              case "*":
+                  o[i-1] = o[i-1] * o[i+1];
+                  o.splice(i, 2) 
+                  i--;
+                  console.log(o);
+                  break;
+          }
+    
+      }
+      
+    
+  }
+    for(var i = 0 ; i < o.length; i++ ){
+    
+      if (["+","-"].includes(o[i])){
+          switch(o[i]) {
+              case "-":
+                 
+                  o[i-1] = o[i-1] - o[i+1];
+                  o.splice(i, 2) 
+                  i--;
+                  break;
+              case "+":
+                  
+                  o[i-1] = parseInt(o[i-1]) + parseInt(o[i+1]);
+                  o.splice(i, 2) 
+                  i--;
+                  break;
+          }
+    
+      }
+      
+    
+  }
+    this.equation = "0";
+    console.log(o);
+
   }
   
   render() {
