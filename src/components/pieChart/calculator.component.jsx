@@ -10,14 +10,18 @@ class Calculator extends React.Component {
     this.validateInt = this.validateInt.bind(this);
     this.numberClicked = this.numberClicked.bind(this);
     this.addition = this.addition.bind(this);
+    this.subtraction = this.subtraction.bind(this);
+    // this.addition = this.addition.bind(this);
+    // this.addition = this.addition.bind(this);
     this.validateOutputBox = this.validateOutputBox.bind(this);
     this.calc = this.calc.bind(this);
+    
   //   this.state = {
   //     equation: "0",
   //     currentOpertion: ""
   
   // };
-  this.equation = "0";
+  this.equation = "";
   this.currentOpertion = "";
   }
   
@@ -53,6 +57,22 @@ class Calculator extends React.Component {
     }
     this.currentOpertion = "+";
     outputBox.value = "";
+  }
+  subtraction(){
+    let outputBox = document.getElementById('outputBox');
+    let isInt = this.validateOutputBox(outputBox);
+    if (isInt === true){
+      // this.setState((state) => ({ equation: state.equation + "+" + outputBox.value }));
+      // console.log(this.he);
+      if (this.equation === "") {
+        this.equation = this.equation + outputBox.value;
+      }else{
+        this.equation = this.equation + "-" + outputBox.value;
+      }
+    }
+    this.currentOpertion = "-";
+    outputBox.value = "";
+    console.log(this.equation);
   }
   // a helper function to validate if the input is an Integer
   // returns true if the input is integer
@@ -174,7 +194,7 @@ class Calculator extends React.Component {
         <div className="operators operators2">
 
           <div onClick={this.addition} className="operator" id='additioin'><h1>+</h1></div>
-          <div className="operator" id='subtraction'><h1>-</h1></div>
+          <div onClick={this.subtraction}className="operator" id='subtraction'><h1>-</h1></div>
           <div className="operator" id='multiplication'><h1>*</h1></div>
           <div className="operator" id='division'><h1>/</h1></div>
 
