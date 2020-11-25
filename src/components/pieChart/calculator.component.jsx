@@ -7,10 +7,6 @@ class Calculator extends React.Component {
     super()
     this.validateInt = this.validateInt.bind(this);
     this.numberClicked = this.numberClicked.bind(this);
-    // this.addition = this.addition.bind(this);
-    // this.subtraction = this.subtraction.bind(this);
-    // this.multiplication = this.multiplication.bind(this);
-    // this.division = this.division.bind(this);
     this.validateOutputBox = this.validateOutputBox.bind(this);
     this.generalblabal = this.generalblabal.bind(this);
     this.addition = this.generalblabal.bind(this,"+");
@@ -23,34 +19,21 @@ class Calculator extends React.Component {
       equation: "",
       operand: "",
       currentOpertion: "",
-      error: undefined,
+      error: undefined
 
   };
-  // this.equation = "";
-  // this.currentOpertion = "";
+
   }
   
-  
-
-  componentDidMount(){
-    console.log(this.state);
-  }
-
-  componentDidUpdate(){
-    console.log(this.state);
-  }
-
   // adds digits to outputBox as clicked
   numberClicked(number) {
-    const {equation,operand,currentOpertion,error } = this.state;
-
+    const {operand} = this.state;
     this.setState(({operand}) => ({operand: operand + number}));
   }
 
-  
 // validate outputBox for correct input prior to updating the state
   validateOutputBox(){
-    const {equation,operand,currentOpertion,error } = this.state;
+    const {operand} = this.state;
 
     let currentInput = operand;
       if(currentInput === ""  ) {
@@ -61,16 +44,14 @@ class Calculator extends React.Component {
         this.setState({
           operand: "",
           error: "I need an Integer here! not an empty input"
-
-      
       });
 
-      }else{return true}
+      }else {return true}
     }
   }
 
   generalblabal(operator){
-    const {equation,operand,currentOpertion,error } = this.state;
+    const {equation,operand,currentOpertion} = this.state;
 
     let isInt = this.validateOutputBox();
     if (isInt === true){
@@ -90,89 +71,11 @@ class Calculator extends React.Component {
     
   }
 
-  // addition(){
-  //   const {equation,operand,currentOpertion,error } = this.state;
-
-  //   let isInt = this.validateOutputBox();
-  //   if (isInt === true){
-
-  //     if (equation === "") {
-  //       this.setState(({equation}) => ({ equation: equation + operand }));
-  //     }else{
-  //       this.setState(({equation}) => ({ equation: equation + "+" + operand }));
-  //     }
-
-  //   }
-
-  //   this.setState(({currentOpertion}) => ({ 
-  //     currentOpertion: "+",
-  //     operand: ""
-  //   }));
-    
-  // }
-
-
-  // division(){
-  //   let outputBox = document.getElementById('outputBox');
-  //   let isInt = this.validateOutputBox(outputBox);
-  //   if (isInt === true){
-  //     // this.setState((state) => ({ equation: state.equation + "+" + outputBox.value }));
-  //     // console.log(this.he);
-  //     if (this.equation === "") {
-  //       this.equation = this.equation + outputBox.value;
-  //     }else{
-  //       this.equation = this.equation + "/" + outputBox.value;
-  //     }
-
-  //   }
-  //   this.currentOpertion = "/";
-  //   outputBox.value = "";
-  // }
-//   subtraction(){
-//     const {equation,operand,currentOpertion,error } = this.state;
-
-//     let isInt = this.validateOutputBox();
-//     if (isInt === true){
-
-//       if (equation === "") {
-//         this.setState(({equation}) => ({ equation: equation + operand }));
-//       }else{
-//         this.setState(({equation}) => ({ equation: equation + "-" + operand }));
-//       }
-
-//     }
-
-//     this.setState(({currentOpertion}) => ({ 
-//       currentOpertion: "-",
-//       operand: ""
-//     }));
-    
-  
-//  }
-
-  // multiplication(){
-  //   let outputBox = document.getElementById('outputBox');
-  //   let isInt = this.validateOutputBox(outputBox);
-  //   if (isInt === true){
-  //     // this.setState((state) => ({ equation: state.equation + "+" + outputBox.value }));
-  //     // console.log(this.he);
-  //     if (this.equation === "") {
-  //       this.equation = this.equation + outputBox.value;
-  //     }else{
-  //       this.equation = this.equation + "*" + outputBox.value;
-  //     }
-
-  //   }
-  //   this.currentOpertion = "*";
-  //   outputBox.value = "";
-  // }
   // a helper function to validate if the input is an Integer
   // returns true if the input is integer
   validateInt(currentInput) {
-
     let inputToArray = [...currentInput];
     for(let item of inputToArray){
-      // console.log(item);
       if(isNaN(parseInt(item))){
         return false;
       } 
@@ -180,23 +83,10 @@ class Calculator extends React.Component {
     return true;
 
   }
-  // start by implementing this method. justt give state to this method and use the logic we worked on already
+  // start by implementing this method. just give state to this method and use the logic we worked on already
   calc(){
-    const {equation,operand,currentOpertion,error } = this.state;
+    const {equation,operand,currentOpertion} = this.state;
 
-    // let isInt = this.validateOutputBox();
-    // if (isInt === true){
-
-    //   if (equation === "") {
-    //     this.setState(({equation}) => ({ equation: equation + operand }));
-    //   }else{
-        
-    //   }
-
-    // }
-    // console.log(`${equation}${currentOpertion}${operand}`);
-    // this.setState(({equation}) => ({ equation: equation + `${currentOpertion}${operand}` }));
-    
     this.setState(() => ({ 
       currentOpertion: "",
       operand: ""

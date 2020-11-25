@@ -1,4 +1,4 @@
-var i = "12-45/5*3";
+var i = "3+12/2";
 
 // /(:\s|,\s)/
 var o = i.split(/(\/|\+|\-|\*)/);
@@ -58,4 +58,30 @@ for(var i=0 ; i < o.length; i++ ){
 
 
 // console.log(o);
+
+
+for(var j=0 ; j < o.length; j++ ){
+    if(j[i] == "/"){
+      console.log("got");
+    }
+    console.log(typeof o[j]);
+    if (["/","*"].includes(o[i])){
+        switch(o[j]) {
+            case "/":
+                o[j-1] = o[j-1] / o[j+1];
+                o.splice(j, 2) 
+                j--;
+                break;
+            case "*":
+                o[j-1] = o[j-1] * o[j+1];
+                o.splice(j, 2) 
+                j--;
+                console.log(o[j]);
+                break;
+        }
+  
+    }
+    
+  
+}
 
