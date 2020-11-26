@@ -114,26 +114,29 @@ class Calculator extends React.Component {
       }
        
   }
-    for(var i = 0 ; i < o.length; i++ ){
+
+
+  
+  //   for(var i = 0 ; i < o.length; i++ ){
     
-      if (["+","-"].includes(o[i])){
-          switch(o[i]) {
-              case "-":
-                  o[i-1] = parseInt(o[i-1]) - parseInt(o[i+1]);
-                  o.splice(i, 2); 
-                  i--;
-                  break;
-              case "+":
-                  o[i-1] = parseInt(o[i-1]) + parseInt(o[i+1]);
-                  o.splice(i, 2) 
-                  i--;
-                  break;
-          }
+  //     if (["+","-"].includes(o[i])){
+  //         switch(o[i]) {
+  //             case "-":
+  //                 o[i-1] = parseInt(o[i-1]) - parseInt(o[i+1]);
+  //                 o.splice(i, 2); 
+  //                 i--;
+  //                 break;
+  //             case "+":
+  //                 o[i-1] = parseInt(o[i-1]) + parseInt(o[i+1]);
+  //                 o.splice(i, 2) 
+  //                 i--;
+  //                 break;
+  //         }
     
-      }
+  //     }
       
     
-  }
+  // }
   this.setState(() => ({ 
     operand: o[0]
   }));
