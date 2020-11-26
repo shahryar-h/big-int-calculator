@@ -92,11 +92,79 @@ function bigIntAddition(num1,num2) {
 }
 
 
-var i = "12-3+4";
+function bigIntMultiplication(num1, num2) {
+    if(num1.localeCompare(num2, undefined, {numeric: true}) == -1) {
+        let temp = num1;
+        num1 = num2;
+        num2 = temp;
+    }
+
+    num1length = num1.length;
+    num2length = num2.length;
+    numToAdd = [];
+    carry = 0;
+    forAddition = [];
+        for(let j = 0 ; j < num2length ; j++) {
+        multiplier = parseInt(num2 % 10);
+        num2 = String(Math.floor(num2/10));
+        for(let k = 0; k< j ; k++){
+            numToAdd.unshift("0");
+        }
+
+        for (let i = num1length-1; i > -1; i--) {
+            digits = multiplier*parseInt(num1[i]);
+            digits = parseInt(digits) + parseInt(carry);
+            if(digits > 9 && i != 0 ){
+                lastDigit = digits% 10;
+                // digits = Math.floor(digits/10);
+                carry = Math.floor(digits/10);
+                numToAdd.unshift(lastDigit); 
+            }else{
+                numToAdd.unshift(digits);
+            }            
+        }
+        forAddition.unshift(numToAdd.join(""))
+        numToAdd = [];
+        carry = "0";
+        
+
+    }
+
+    while (forAddition.length > 1) {
+        forAddition[1] = bigIntAddition(forAddition[0],forAddition[1]);
+        forAddition.splice(0,1);
+    }
+    
+    return String(parseInt(forAddition[0]));
+    
+    
+
+}
 
 
+var i = "1555*1444+2-1";
 var o = i.split(/(\/|\+|\-|\*)/);
 
+
+for(var i = 0 ; i < o.length; i++ ){
+    
+    if (["*","/"].includes(o[i])){
+        switch(o[i]) {
+            case "/":
+                o[i-1] = parseInt(o[i-1]) / parseInt(o[i+1]);
+                o.splice(i, 2); 
+                i--;
+                break;
+            case "*":
+                o[i-1] = bigIntMultiplication(o[i-1], o[i+1]);
+                o.splice(i, 2) 
+                i--;
+                break;
+        }
+  
+    }
+     
+}
     for(var i = 0 ; i < o.length; i++ ){
     
       if (["+","-"].includes(o[i])){
@@ -125,14 +193,20 @@ var o = i.split(/(\/|\+|\-|\*)/);
 console.log(o);
 
 
-// num1 = parseInt(o[i-1]);
-// num2 = parseInt(o[i+1]);
-// num1 ='123213213124314';
-// num2 = '1232132139';
 
 
+
+
+
+
+
+// num1 ='1555';
+// num2 = '1444';
+
+
+// console.log(bigIntMultiplication(num1,num2));
 
     
 
 // console.log(res);
-    
+
