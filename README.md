@@ -15,9 +15,7 @@
 * To perform the above operation we can't just use programming language's integer addition function. Adding the above numbers cause integer overflow. this means the operation generates a value that is outside the range that can be represented by the programming language. this calculator's algorithm makes this kind of operations possible.
 
 ## Example:
-[ PRETEND SCREEN SHOT IS HERE ]
-
-[ PRETEND OTHER SCREEN SHOT IS HERE ]
+/assets/screen.png
 
 
 ## Installation and Setup Instructions
