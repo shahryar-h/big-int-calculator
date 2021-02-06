@@ -43,7 +43,7 @@ class Calculator extends React.Component {
       if(isInt === false){
         this.setState({
           operand: "",
-          error: "I need an Integer here! not an empty input"
+          error: "I need an Integer here!"
       });
 
       }else {return true}
