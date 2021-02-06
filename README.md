@@ -2,7 +2,8 @@
 # Big Integer Calculator
 * A neuromorphic designed calculator to work with long integers. Operations like adding two 20-digit numbers.
 
-  
+## Technology
+* React, html, css, javascript
 
 ## Project Status
 * the calculator works with four basic operations. 
@@ -31,4 +32,4 @@ Clone down this repository. You will need node and npm installed globally on you
 
 ### To Visit App:
 
-    localhost:3000/ideas
+    localhost:3000
